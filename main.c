@@ -53,8 +53,7 @@ int main(int argc, char **argv)
 			info.line_number++;
 			continue;
 		}
-		/*lacks operation*/
-		info.line_number++;
+		/*lacks add operation*/	info.line_number++;
 	}
 	/*return (EXIT_SUCCESS);*/
 }
