@@ -40,6 +40,22 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct strct_s - struct of info's structs
+ * @sta
+ * @line_number: line number
+ * @queue_status: off by default
+ * Description: global struct with program info
+ */
+typedef struct strct_s
+{
+	FILE *file;
+	char *line;
+	stack_t *stack;
+	unsigned int line_number;
+} strct_t;
+extern strct_t strct;
+
 /* prototypes */
 
 #endif
