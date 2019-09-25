@@ -1,5 +1,5 @@
-#ifndef FILE_HOLBERTON
-#define FILE_HOLBERTON
+#ifndef FILE_MONTY
+#define FILE_MONTY
 
 /* imports */
 #include <stdio.h>
