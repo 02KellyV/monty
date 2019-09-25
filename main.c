@@ -11,11 +11,10 @@ int main(int argc, char **argv[])
 {
 	FILE *file;
 	char chr;
-	char letter;
+	char *letter, ins;
 	size_t len;
 	char **opcode;
-	int boole = 0, i = 0;
-
+	int boole = 0, i = 0, count = 0;
 
 	/*open*/
 	file = fopen(argv[1], "r");
@@ -30,6 +29,17 @@ int main(int argc, char **argv[])
 		dprintf(2,"USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
+	/*get number*/
+	chr = getc(monty_file);
+	for (chr; chr != EOF; chr)
+	{
+                if (chr == '\n')
+		{
+                        count++;
+		}
+	}
+        printf("lines: %d\n", count);
+        commands = malloc(sizeof(char *) *(count + 1));
 	/*get info*/
 	file = fopen(argv[1], "r");
 	boole = (read =  getline(&letter, &len, file);
@@ -37,7 +47,6 @@ int main(int argc, char **argv[])
         {
 		opcode[i] = strdup(line);
 		i++
-                /*argv[1]*/
         }
 	opcode[i] = NULL;
 	/*print info*/
