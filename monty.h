@@ -1,5 +1,6 @@
 #ifndef FILE_MONTY
 #define FILE_MONTY
+#define _GNU_SOURCE
 
 /* imports */
 #include <stdio.h>
@@ -57,5 +58,6 @@ typedef struct strct_s
 extern strct_t strct;
 
 /* prototypes */
+void add(char *value);
 
 #endif
