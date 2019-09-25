@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * add - add node in stack_t
+ * @value: value's node
+ */
+
 void add(char *value)
 {
 	register int n;
@@ -12,14 +17,16 @@ void add(char *value)
 	if (!strlen(value))
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", strct.line_number);
-		/*add*/exit(EXIT_FAILURE);
+		/*add funct*/
+		exit(EXIT_FAILURE);
 	}
 	n = atoi(value);
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		/*add*/exit(EXIT_FAILURE);
+		/*add funct*/
+		exit(EXIT_FAILURE);
 	}
 	new->n = n;
 	new->next = NULL;
