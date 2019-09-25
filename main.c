@@ -18,7 +18,6 @@ void refractor(void)
 int main(int argc, char **argv)
 {
 	char *opcode, *val;
-	register int i = 0, count = 0;
 	ssize_t read;
 	size_t len;
 
@@ -48,12 +47,12 @@ int main(int argc, char **argv)
 		}
 		if (strcmp(opcode, "push") == 0)
 		{
-			value = strtok(NULL, " ");
+			val = strtok(NULL, " ");
 			/*push and poll*/
-			info.line_number++;
+			strct.line_number++;
 			continue;
 		}
-		/*lacks add operation*/	info.line_number++;
+		/*lacks add operation*/	strct.line_number++;
 	}
-	/*return (EXIT_SUCCESS);*/
+	return (0);
 }

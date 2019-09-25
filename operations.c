@@ -9,17 +9,17 @@ void add(char *value)
 	ptr = strchr(value, '\n');
 	if (ptr)
 		*ptr = 0;
-	if (!strlen(value) || !is_valid_num(value))
+	if (!strlen(value))
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", strct.line_number);
-		/**/exit(EXIT_FAILURE);
+		/*add*/exit(EXIT_FAILURE);
 	}
 	n = atoi(value);
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		/**/exit(EXIT_FAILURE);
+		/*add*/exit(EXIT_FAILURE);
 	}
 	new->n = n;
 	new->next = NULL;
