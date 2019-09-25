@@ -7,53 +7,54 @@
  * Return: 0 on success or 1 on error
  */
 
-int main(int argc, char **argv[])
+void refractor(void)
 {
-	FILE *file;
-	char chr;
-	char *letter, ins;
-	size_t len;
-	char **opcode;
-	int boole = 0, i = 0, count = 0;
+	strct.file = NULL;
+	strct.line = NULL;
+	strct.stack = NULL;
+	strct.line_number = 1;
+}
 
-	/*open*/
-	file = fopen(argv[1], "r");
-	if (file == NULL)
-	{
-		dprintf(2,"Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
+int main(int argc, char **argv)
+{
+	char *opcode, *val;
+	register int i = 0, count = 0;
+	ssize_t read;
+	size_t len;
+
+	refractor();
 	/*validate*/
 	if (argc != 2)
 	{
-		dprintf(2,"USAGE: monty file\n");
+		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	/*get number*/
-	chr = getc(monty_file);
-	for (chr; chr != EOF; chr)
+	/*open*/
+	strct.file = fopen(argv[1], "r");
+	if (!strct.file)
 	{
-                if (chr == '\n')
+		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+	/*get line*/
+	read = getline(&strct.line, &len, strct.file);
+	while (read != -1)
+	{
+		opcode = strtok(strct.line, " ");
+		if (*opcode == '#' || *opcode == '\n')
 		{
-                        count++;
+			strct.line_number ++;
+			continue;
 		}
+		if (strcmp(opcode, "push") == 0)
+		{
+			value = strtok(NULL, " ");
+			/*push and poll*/
+			info.line_number++;
+			continue;
+		}
+		/*lacks operation*/
+		info.line_number++;
 	}
-        printf("lines: %d\n", count);
-        commands = malloc(sizeof(char *) *(count + 1));
-	/*get info*/
-	file = fopen(argv[1], "r");
-	boole = (read =  getline(&letter, &len, file);
-        while (boole != -1)
-        {
-		opcode[i] = strdup(line);
-		i++
-        }
-	opcode[i] = NULL;
-	/*print info*/
-	for (i = 0; opcode[i]; i++)
-	{
-		dprintf("line %i: %s", i, opcode[i]);
-	}
-	fclose(file);
-	return (EXIT_SUCCESS);
+	/*return (EXIT_SUCCESS);*/
 }
