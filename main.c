@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	/*get line*/
 	while ((read = getline(&strct.line, &len, strct.file)) != -1)
 	{
-		opcode = strtok(strct.line, " ");
+		opcode = strtok(strct.line, " \t");
 		if (*opcode == '#' || *opcode == '\n')
 		{
 			strct.line_number++;
