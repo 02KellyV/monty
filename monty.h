@@ -68,7 +68,7 @@ strct_t push(char *value, strct_t strct);
 strct_t push1(char *value, strct_t strct);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number)
+void pop(stack_t **stack, unsigned int line_number);
 void lst_opcode(stack_t **stack, char *opcode, strct_t strct);
 
 #endif
