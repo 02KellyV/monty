@@ -29,23 +29,20 @@ int main(int argc, char **argv)
 	size_t len = 0;
 
 	strct = refractor(strct);
-	/*validate*/
 	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	/*open*/
 	strct.file = fopen(argv[1], "r");
 	if (!strct.file)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	/*get line*/
 	while ((read = getline(&strct.line, &len, strct.file)) != -1)
 	{
-		opcode = strtok(strct.line, " ");
+		opcode = strtok(strct.line, " \t");
 		if (*opcode == '#' || *opcode == '\n')
 		{
 			strct.line_number++;
@@ -54,12 +51,13 @@ int main(int argc, char **argv)
 		if (strcmp(opcode, "push") == 0)
 		{
 			val = strtok(NULL, " ");
-			strct = push(val, strct);
+			strct = push1(val, strct);
 			strct.line_number++;
 			continue;
 		}
 		lst_opcode(&strct.stack, opcode, strct);
 		strct.line_number++;
 	}
+	free_collect(strct);
 	return (0);
 }

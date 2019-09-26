@@ -54,9 +54,9 @@ strct_t push(char *value, strct_t strct)
  * push1 - add node in stack_t
  * @value: value's node
  * @strct: strct_t
- * Return: (void)
+ * Return: strct_t
  */
-void push1(char *value, strct_t strct)
+strct_t push1(char *value, strct_t strct)
 {
 	register int n;
 	stack_t *new;
@@ -89,6 +89,7 @@ void push1(char *value, strct_t strct)
 	if (new->next)
 		new->next->prev = new;
 	strct.stack = new;
+	return (strct);
 }
 
 /**
@@ -99,27 +100,29 @@ void push1(char *value, strct_t strct)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
+	unsigned int i = 0;
 	stack_t *current = *stack;
 
 	(void)line_number;
 
 	if (current == NULL)
 	{
-		exit(EXIT_SUCCESS);
-	}
-	while (current->next)
-	{
-		current = current->next;
-	}
-	while (current)
-	{
-		printf("%d\n", current->n);
-		current = current->prev;
+		return;
 	}
 	/*
-	 *for (i = 0; current; i++, current = current->next)
-	 *{
+	 * while (current->next)
+	 * {
+	 *	current = current->next;
+	 * }
+	 * while (current)
+	 * {
 	 *	printf("%d\n", current->n);
-	 *}
+	 *	current = current->prev;
+	 * }
 	 */
+	for (i = 0; current; i++, current = current->next)
+	{
+		printf("%d\n", current->n);
+	}
+
 }

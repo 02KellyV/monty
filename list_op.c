@@ -33,6 +33,7 @@ void lst_opcode(stack_t **stack, char *opcode, strct_t strct)
  {NULL, NULL}
 
 	};
+
 	opc = strtok(opcode, "\n");
 	for (i = 0; inst_tble[i].opcode; i++)
 		if (strcmp(opc, inst_tble[i].opcode) == 0)
@@ -40,6 +41,7 @@ void lst_opcode(stack_t **stack, char *opcode, strct_t strct)
 			inst_tble[i].f(stack, strct.line_number);
 			return;
 		}
+
 	dprintf(STDERR_FILENO, "L%d: ", strct.line_number);
 	dprintf(STDERR_FILENO, "unknown instruction %s\n", opcode);
 	fclose(strct.file);
