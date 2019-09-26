@@ -1,5 +1,5 @@
 #include "monty.h"
-extern strct_t strct;
+
 /**
  * lst_opcode - List opcode
  * inst_tble: instructions
@@ -11,21 +11,22 @@ void lst_opcode(stack_t **stack, char *opcode)
 	register int i;
 	char *opc;
 	instruction_t inst_tble[] = {
-/*		{"push", },
-		{"pint", },
-		{"pop", },
-		{"swap", },
-		{"nop", },
-		{"sub", },
-		{"div", },
-		{"mul", },
-		{"mod", },
-		{"pchar", },
-		{"pstr", },
-		{"rotl", },
-		{"rotr", },
-		{"stack", },
-*/		{"pall", pall},
+/*
+ *		{"push", },
+ *		{"pint", },
+ *		{"pop", },
+ *		{"swap", },
+ *		{"nop", },
+ *		{"sub", },
+ *		{"div", },
+ *		{"mul", },
+ *		{"mod", },
+ *		{"pchar", },
+ *		{"pstr", },
+ *		{"rotl", },
+ *		{"rotr", },
+ *		{"stack", },
+ */		{"pall", pall},
 		{NULL, NULL}
 	};
 	opc = strtok(opcode, "\n");
