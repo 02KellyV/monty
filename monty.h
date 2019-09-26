@@ -54,10 +54,16 @@ typedef struct strct_s
 	char *line;
 	stack_t *stack;
 	unsigned int line_number;
+	int state;
 } strct_t;
 extern strct_t strct;
 
 /* prototypes */
-void add(char *value);
+void push(char *value);
+void push1(char *value);
+int _isdigit(char *str);
+void free_stck(stack_t *head);
+void lst_opcode(stack_t **stack, char *opcode);
+void pall(stack_t **stack, unsigned int line_number);
 
 #endif
