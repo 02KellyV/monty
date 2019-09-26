@@ -1,8 +1,30 @@
 #include "monty.h"
 
 /**
+ * free_collect - handle free
+ * @strct: strct_t strct
+ * Return: (strct)
+ */
+strct_t free_collect(strct_t strct)
+{
+	fclose(strct.file);
+	if (strct.line)
+	{
+		free(strct.line);
+		strct.line = NULL;
+	}
+	if (strct.stack)
+	{
+		free_stck(strct.stack);
+		strct.stack =  NULL;
+	}
+	return (strct);
+}
+
+/**
  * free_stck - free stack_t
  * @head: pointer head stack
+ * Return: (void)
  */
 void free_stck(stack_t *head)
 {
@@ -27,7 +49,7 @@ int _isdigit(char *str)
 
 	while (str[i])
 	{
-		if (i == 0 && str[i] == '-')
+		if (str[i] == '-')
 		{
 			i++;
 			continue;
