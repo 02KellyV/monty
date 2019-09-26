@@ -109,19 +109,20 @@ void pall(stack_t **stack, unsigned int line_number)
 	{
 		exit(EXIT_SUCCESS);
 	}
-	/*while (current->next)
-	{
-		current = current->next;
-	}
-	while (current)
+	/*
+	 * while (current->next)
+	 * {
+	 *	current = current->next;
+	 * }
+	 * while (current)
+	 * {
+	 *	printf("%d\n", current->n);
+	 *	current = current->prev;
+	 * }
+	 */
+	for (i = 0; current; i++, current = current->next)
 	{
 		printf("%d\n", current->n);
-		current = current->prev;
 	}
-	*/
-	 for (i = 0; current; i++, current = current->next)
-	 {
-	 	printf("%d\n", current->n);
-	 }
 
 }
