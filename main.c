@@ -54,12 +54,13 @@ int main(int argc, char **argv)
 		if (strcmp(opcode, "push") == 0)
 		{
 			val = strtok(NULL, " ");
-			strct = push(val, strct);
+			strct = push1(val, strct);
 			strct.line_number++;
 			continue;
 		}
 		lst_opcode(&strct.stack, opcode, strct);
 		strct.line_number++;
 	}
+	exit(EXIT_SUCCESS);
 	return (0);
 }

@@ -54,9 +54,9 @@ strct_t push(char *value, strct_t strct)
  * push1 - add node in stack_t
  * @value: value's node
  * @strct: strct_t
- * Return: (void)
+ * Return: strct_t
  */
-void push1(char *value, strct_t strct)
+strct_t push1(char *value, strct_t strct)
 {
 	register int n;
 	stack_t *new;
@@ -89,6 +89,7 @@ void push1(char *value, strct_t strct)
 	if (new->next)
 		new->next->prev = new;
 	strct.stack = new;
+	return (strct);
 }
 
 /**
@@ -99,6 +100,7 @@ void push1(char *value, strct_t strct)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
+	unsigned int i = 0;
 	stack_t *current = *stack;
 
 	(void)line_number;
@@ -107,7 +109,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	{
 		exit(EXIT_SUCCESS);
 	}
-	while (current->next)
+	/*while (current->next)
 	{
 		current = current->next;
 	}
@@ -116,10 +118,58 @@ void pall(stack_t **stack, unsigned int line_number)
 		printf("%d\n", current->n);
 		current = current->prev;
 	}
-	/*
-	 *for (i = 0; current; i++, current = current->next)
-	 *{
-	 *	printf("%d\n", current->n);
-	 *}
-	 */
+	*/
+	 for (i = 0; current; i++, current = current->next)
+	 {
+	 	printf("%d\n", current->n);
+	 }
+	 
 }
+
+/**
+ * pint - print first node
+ * @stack: head stack
+ * @line_number: line number
+ * Return: (void)
+
+void pint(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current = *stack;
+
+	if (!current)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n", line_number);
+		fclose(strct.file);
+                free(strct.line);
+                free_stck(strct.stack);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", current->n);
+}
+
+
+ * pop - removes the top element of the stack
+ * @stack: pointer to the head of the list
+ * @line_number: line number of instruction
+ */
+/*void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current = *stack;
+	stack_t *next;
+
+	if (!current)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", line_number);
+		fclose(strct.file);
+                free(strct.line);
+                free_stck(strct.stack);
+		exit(EXIT_FAILURE);
+	}
+	next = current->next;
+	free(current);
+	*stack = next;
+	current = *stack;
+	if (current)
+	current->prev = NULL;
+}
+*/

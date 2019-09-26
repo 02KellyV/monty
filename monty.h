@@ -62,7 +62,7 @@ extern strct_t strct;
 
 /* prototypes */
 strct_t push(char *value, strct_t strct);
-void push1(char *value, strct_t strct);
+strct_t push1(char *value, strct_t strct);
 int _isdigit(char *str);
 void free_stck(stack_t *head);
 void lst_opcode(stack_t **stack, char *opcode, strct_t strct);
