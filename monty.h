@@ -1,7 +1,17 @@
-#ifndef FILE_HOLBERTON
-#define FILE_HOLBERTON
+#ifndef FILE_MONTY
+#define FILE_MONTY
+#define _GNU_SOURCE
 
+/* imports */
 #include <stdio.h>
+#include <ctype.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -31,5 +41,29 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct strct_s - struct of info's structs
+ * @sta
+ * @line_number: line number
+ * @queue_status: off by default
+ * Description: global struct with program info
+ */
+typedef struct strct_s
+{
+	FILE *file;
+	char *line;
+	stack_t *stack;
+	unsigned int line_number;
+	int state;
+} strct_t;
+extern strct_t strct;
+
+/* prototypes */
+void push(char *value);
+void push1(char *value);
+int _isdigit(char *str);
+void free_stck(stack_t *head);
+void lst_opcode(stack_t **stack, char *opcode);
+void pall(stack_t **stack, unsigned int line_number);
 
 #endif
