@@ -30,6 +30,7 @@ void lst_opcode(stack_t **stack, char *opcode, strct_t strct)
  */{"pall", pall},
  {"pint", pint},
  {NULL, NULL}
+
 	};
 	opc = strtok(opcode, "\n");
 	for (i = 0; inst_tble[i].opcode; i++)
