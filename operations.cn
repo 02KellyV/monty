@@ -4,7 +4,6 @@
  * push - add node in stack_t
  * @value: value's node
  * @strct: strct_t
- * Return: (strct)
  */
 strct_t push(char *value, strct_t strct)
 {

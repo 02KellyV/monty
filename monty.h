@@ -59,11 +59,11 @@ typedef struct strct_s
 extern strct_t strct;
 
 /* prototypes */
-void push(char *value);
-void push1(char *value);
+strct_t push(char *value, strct_t strct);
+void push1(char *value, strct_t strct);
 int _isdigit(char *str);
 void free_stck(stack_t *head);
-void lst_opcode(stack_t **stack, char *opcode);
+void lst_opcode(stack_t **stack, char *opcode, strct_t strct);
 void pall(stack_t **stack, unsigned int line_number);
 
 #endif
