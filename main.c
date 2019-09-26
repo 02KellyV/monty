@@ -61,6 +61,7 @@ int main(int argc, char **argv)
 		lst_opcode(&strct.stack, opcode, strct);
 		strct.line_number++;
 	}
+	free_collect(strct);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
