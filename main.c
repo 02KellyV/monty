@@ -2,10 +2,10 @@
 
 /**
  * refractor - to initialize in empty data
+ * @strct: global variable
  * Return: (void)
  */
-strct_t strct;
-void refractor(void)
+void refractor(strct_t strct)
 {
 	strct.file = NULL;
 	strct.line = NULL;
@@ -22,11 +22,12 @@ void refractor(void)
  */
 int main(int argc, char **argv)
 {
+	strct_t srtct;
 	char *opcode, *val;
 	ssize_t read = 0;
 	size_t len = 0;
 
-	refractor();
+	refractor(strct_t strct);
 	/*validate*/
 	if (argc != 2)
 	{
