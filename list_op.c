@@ -29,6 +29,7 @@ void lst_opcode(stack_t **stack, char *opcode, strct_t strct)
  *{"stack", },
  */{"pall", pall},
  {"pint", pint},
+ {"pop",pop}
  {NULL, NULL}
 
 	};
