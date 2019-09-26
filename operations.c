@@ -93,12 +93,20 @@ void push1(char *value)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	size_t i;
 	stack_t *current = *stack;
 
 	(void)line_number;
-	for (i = 0; current; i++, current = current->next)
+	while (current->next)
+	{
+		current = current->next;
+	}
+	while (current)
 	{
 		printf("%d\n", current->n);
+		current = current->prev;
 	}
+	/*for (i = 0; current; i++, current = current->next)
+	{
+		printf("%d\n", current->n);
+	}*/
 }

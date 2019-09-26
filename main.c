@@ -23,7 +23,7 @@ void refractor(void)
 int main(int argc, char **argv)
 {
 	char *opcode, *val;
-	ssize_t read;
+	ssize_t read = 0;
 	size_t len = 0;
 
 	refractor();
@@ -41,8 +41,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	/*get line*/
-	read = getline(&strct.line, &len, strct.file);
-	while (read != -1)
+	while ((read = getline(&strct.line, &len, strct.file)) != -1)
 	{
 		opcode = strtok(strct.line, " ");
 		if (*opcode == '#' || *opcode == '\n')
@@ -53,7 +52,7 @@ int main(int argc, char **argv)
 		if (strcmp(opcode, "push") == 0)
 		{
 			val = strtok(NULL, " ");
-			strct.state ? push(val) : push1(val);
+			push(val);
 			strct.line_number++;
 			continue;
 		}
