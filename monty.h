@@ -68,5 +68,5 @@ void free_stck(stack_t *head);
 void lst_opcode(stack_t **stack, char *opcode, strct_t strct);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
-
+void pop(stack_t **stack, unsigned int line_number);
 #endif
