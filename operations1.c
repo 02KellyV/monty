@@ -10,6 +10,7 @@
 void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
+
 	if (!current)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n", line_number);
@@ -31,6 +32,7 @@ void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 	stack_t *next;
+
 	if (!current)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", line_number);
