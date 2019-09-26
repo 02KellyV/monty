@@ -43,9 +43,11 @@ typedef struct instruction_s
 
 /**
  * struct strct_s - struct of info's structs
- * @sta
+ * @file: monty file
+ * @line: line file
+ * @stack: stack_t list
  * @line_number: line number
- * @queue_status: off by default
+ * @state: int 0
  * Description: global struct with program info
  */
 typedef struct strct_s
