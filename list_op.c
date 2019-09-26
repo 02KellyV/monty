@@ -27,10 +27,11 @@ void lst_opcode(stack_t **stack, char *opcode, strct_t strct)
  *{"rotl", },
  *{"rotr", },
  *{"stack", },
- */
-	{"pall", pall},
-	{"pint", pint},
-	{NULL, NULL}
+ */{"pall", pall},
+ {"pint", pint},
+ {"pop",pop},
+ {NULL, NULL}
+
 	};
 
 	opc = strtok(opcode, "\n");
