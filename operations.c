@@ -54,6 +54,7 @@ strct_t push(char *value, strct_t strct)
  * push1 - add node in stack_t
  * @value: value's node
  * @strct: strct_t
+ * Return: (void)
  */
 void push1(char *value, strct_t strct)
 {
@@ -94,6 +95,7 @@ void push1(char *value, strct_t strct)
  * pall - print all stack_t
  * @stack: head stack
  * @line_number: line number
+ * Return: (void)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
