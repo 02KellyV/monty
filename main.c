@@ -3,15 +3,16 @@
 /**
  * refractor - to initialize in empty data
  * @strct: global variable
- * Return: (void)
+ * Return: (strct)
  */
-void refractor(strct_t strct)
+strct_t refractor(strct_t strct)
 {
 	strct.file = NULL;
 	strct.line = NULL;
 	strct.stack = NULL;
 	strct.line_number = 1;
 	strct.state = 0;
+	return (strct);
 }
 
 /**
@@ -22,12 +23,12 @@ void refractor(strct_t strct)
  */
 int main(int argc, char **argv)
 {
-	strct_t srtct;
+	strct_t strct;
 	char *opcode, *val;
 	ssize_t read = 0;
 	size_t len = 0;
 
-	refractor(strct_t strct);
+	strct = refractor(strct);
 	/*validate*/
 	if (argc != 2)
 	{
@@ -53,11 +54,11 @@ int main(int argc, char **argv)
 		if (strcmp(opcode, "push") == 0)
 		{
 			val = strtok(NULL, " ");
-			push(val);
+			strct = push(val, strct);
 			strct.line_number++;
 			continue;
 		}
-		lst_opcode(&strct.stack, opcode);
+		lst_opcode(&strct.stack, opcode, strct);
 		strct.line_number++;
 	}
 	return (0);

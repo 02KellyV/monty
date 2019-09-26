@@ -3,10 +3,11 @@
 /**
  * lst_opcode - List opcode
  * inst_tble: instructions
- * @stack: stack
+ * @stack: stack_t
+ * @strct: strct_t
  * @opcode: data line
  */
-void lst_opcode(stack_t **stack, char *opcode)
+void lst_opcode(stack_t **stack, char *opcode, strct_t strct)
 {
 	register int i;
 	char *opc;
