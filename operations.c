@@ -1,11 +1,10 @@
 #include "monty.h"
 
 /**
- * add - add node in stack_t
+ * push - add node in stack_t
  * @value: value's node
  */
-
-void add(char *value)
+void push(char *value)
 {
 	register int n;
 	stack_t *new, *current = strct.stack;
@@ -14,10 +13,12 @@ void add(char *value)
 	ptr = strchr(value, '\n');
 	if (ptr)
 		*ptr = 0;
-	if (!strlen(value))
+	if (!strlen(value) || !_isdigit(value))
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", strct.line_number);
-		/*add funct*/
+		fclose(strct.file);
+		free(strct.line);
+		free_stck(strct.stack);
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(value);
@@ -25,7 +26,9 @@ void add(char *value)
 	if (!new)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		/*add funct*/
+		fclose(strct.file);
+		free(strct.line);
+		free_stck(strct.stack);
 		exit(EXIT_FAILURE);
 	}
 	new->n = n;
@@ -37,7 +40,65 @@ void add(char *value)
 		return;
 	}
 	while (current->next)
+	{
 		current = current->next;
+	}
 	current->next = new;
 	new->prev = current;
+}
+
+/**
+ * push1 - add node in stack_t
+ * @value: value's node
+ */
+void push1(char *value)
+{
+	register int n;
+	stack_t *new;
+	char *ptr = NULL;
+
+	ptr = strchr(value, '\n');
+	if (ptr)
+		*ptr = 0;
+	if (!strlen(value) || !_isdigit(value))
+	{
+		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", strct.line_number);
+		fclose(strct.file);
+		free(strct.line);
+		free_stck(strct.stack);
+		exit(EXIT_FAILURE);
+	}
+	n = atoi(value);
+	new = malloc(sizeof(stack_t));
+	if (!new)
+	{
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		fclose(strct.file);
+		free(strct.line);
+		free_stck(strct.stack);
+		exit(EXIT_FAILURE);
+	}
+	new->n = n;
+	new->next = strct.stack;
+	new->prev = NULL;
+	if (new->next)
+		new->next->prev = new;
+	strct.stack = new;
+}
+
+/**
+ * pall - print all stack_t
+ * @stack: head stack
+ * @line_number: line number
+ */
+void pall(stack_t **stack, unsigned int line_number)
+{
+	size_t i;
+	stack_t *current = *stack;
+
+	(void)line_number;
+	for (i = 0; current; i++, current = current->next)
+	{
+		printf("%d\n", current->n);
+	}
 }
