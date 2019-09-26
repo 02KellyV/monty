@@ -107,7 +107,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	if (current == NULL)
 	{
-		exit(EXIT_SUCCESS);
+		return;
 	}
 	/*
 	 * while (current->next)

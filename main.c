@@ -59,6 +59,5 @@ int main(int argc, char **argv)
 		strct.line_number++;
 	}
 	free_collect(strct);
-	exit(EXIT_SUCCESS);
 	return (0);
 }
