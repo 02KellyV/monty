@@ -13,22 +13,24 @@ void lst_opcode(stack_t **stack, char *opcode, strct_t strct)
 	char *opc;
 	instruction_t inst_tble[] = {
 /*
- *		{"push", },
- *		{"pint", },
- *		{"pop", },
- *		{"swap", },
- *		{"nop", },
- *		{"sub", },
- *		{"div", },
- *		{"mul", },
- *		{"mod", },
- *		{"pchar", },
- *		{"pstr", },
- *		{"rotl", },
- *		{"rotr", },
- *		{"stack", },
- */		{"pall", pall},
-		{NULL, NULL}
+ *{"push", },
+ *{"pint", },
+ *{"pop", },
+ *{"swap", },
+ *{"nop", },
+ *{"sub", },
+ *{"div", },
+ *{"mul", },
+ *{"mod", },
+ *{"pchar", },
+ *{"pstr", },
+ *{"rotl", },
+ *{"rotr", },
+ *{"stack", },
+ */{"pall", pall},
+ {"pint", pint},
+ {NULL, NULL}
+
 	};
 	opc = strtok(opcode, "\n");
 	for (i = 0; inst_tble[i].opcode; i++)
