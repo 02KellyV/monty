@@ -70,6 +70,7 @@ void pall(stack_t **stack, unsigned int line_number);
 /*strct_t pint(stack_t **stack, unsigned int line_number);
 strct_t pop(stack_t **stack, unsigned int line_number);
 */
+void nop(stack_t **stack, unsigned int line_number);
 void lst_opcode(stack_t **stack, char *opcode, strct_t strct);
 
 #endif
