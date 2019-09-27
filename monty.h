@@ -60,16 +60,19 @@ typedef struct strct_s
 } strct_t;
 extern strct_t strct;
 
-/*xo prototypes */
+/* prototypes */
 int _isdigit(char *str);
 void free_stck(stack_t *head);
 strct_t free_collect(strct_t strct);
 strct_t push(char *value, strct_t strct);
 strct_t push1(char *value, strct_t strct);
 void pall(stack_t **stack, unsigned int line_number);
-/*strct_t pint(stack_t **stack, unsigned int line_number);
-strct_t pop(stack_t **stack, unsigned int line_number);
-*/
+void nop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+/*
+ *strct_t pint(stack_t **stack, unsigned int line_number);
+ *strct_t pop(stack_t **stack, unsigned int line_number);
+ */
 void lst_opcode(stack_t **stack, char *opcode, strct_t strct);
 
 #endif
