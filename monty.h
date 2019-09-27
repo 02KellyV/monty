@@ -69,10 +69,8 @@ strct_t push1(char *value, strct_t strct);
 void pall(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
-/*
- *strct_t pint(stack_t **stack, unsigned int line_number);
- *strct_t pop(stack_t **stack, unsigned int line_number);
- */
+void pop(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 void lst_opcode(stack_t **stack, char *opcode, strct_t strct);
 
 #endif

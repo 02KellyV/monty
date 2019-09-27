@@ -14,8 +14,6 @@ void lst_opcode(stack_t **stack, char *opcode, strct_t strct)
 	instruction_t inst_tble[] = {
 /*
  *{"push", },
- *{"pint", },
- *{"pop", },
  *{"sub", },
  *{"div", },
  *{"mul", },
@@ -26,6 +24,8 @@ void lst_opcode(stack_t **stack, char *opcode, strct_t strct)
  *{"rotr", },
  *{"stack", },
  */
+{"pint", pint},
+{"pop", pop},
 {"swap", swap},
 {"nop", nop},
 {"pall", pall},
