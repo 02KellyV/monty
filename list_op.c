@@ -22,8 +22,8 @@ void lst_opcode(stack_t **stack, char *opcode, strct_t strct)
  *{"pstr", },
  *{"rotl", },
  *{"rotr", },
- *{"stack", },
  */
+{"add", add},
 {"pint", pint},
 {"pop", pop},
 {"swap", swap},
