@@ -5,6 +5,8 @@
  * @stack: head of stack
  * @line_number: line number
  */
+
+/**
 void swap_list(stack_t **stack, unsigned int line_number)
 {
 	register int tmp;
@@ -25,13 +27,20 @@ void swap_list(stack_t **stack, unsigned int line_number)
 	next->n = tmp;
 }
 
+*/
+
+
 /**
  * nop - do anything
  * @stack: head's stack
  * @line_number: line number
  */
+
+/**
+
 void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
 }
+*/

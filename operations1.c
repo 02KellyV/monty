@@ -7,7 +7,10 @@
  * Return: (void)
  */
 
-void pint(stack_t **stack, unsigned int line_number)
+
+/**
+
+strct_t pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 
@@ -20,7 +23,10 @@ void pint(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", current->n);
+	return (strct_t);
 }
+
+**/
 
 /**
 * pop - removes the top element of the stack
@@ -28,7 +34,9 @@ void pint(stack_t **stack, unsigned int line_number)
 * @line_number: line number of instruction
 */
 
-void pop(stack_t **stack, unsigned int line_number)
+/**
+
+strct_t pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 	stack_t *next;
@@ -47,4 +55,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	current = *stack;
 	if (current)
 		current->prev = NULL;
+	return (strct_t);
 }
+
+*/
