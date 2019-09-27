@@ -10,13 +10,15 @@ void mul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 	stack_t *next;
+	int tmp;
 
 	if (!current || !current->next)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	tmp = (*next) -> n;
 	next = current->next;
-	next->n = (next->n) * (current->n);
+	tmp *= current->n;
 	pop(stack, line_number);
 }
